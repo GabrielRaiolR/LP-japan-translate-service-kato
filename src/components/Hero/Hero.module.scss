@@ -1,0 +1,80 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.hero {
+  background: $color-white;
+  padding-block: 32px 56px;
+
+  @include md {
+    padding-block: 0 70px;
+  }
+}
+
+.inner {
+  display: grid;
+  gap: 32px;
+  align-items: center;
+
+  @include md {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+}
+
+.copy {
+  order: 2;
+
+  @include md {
+    order: 1;
+  }
+}
+
+.title {
+  font-family: $font-display;
+  font-size: clamp(2.25rem, 5.4vw, 3.75rem);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: $color-text;
+  max-width: 530px;
+  margin-bottom: 24px;
+
+  @include md {
+    margin-bottom: 35px;
+  }
+}
+
+.subtitle {
+  font-size: 1.125rem;
+  line-height: 1.45;
+  color: $color-text;
+  max-width: 500px;
+  margin-bottom: 28px;
+
+  @include md {
+    font-size: 1.25rem;
+    margin-bottom: 35px;
+  }
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.visual {
+  order: 1;
+  display: flex;
+  justify-content: center;
+
+  @include md {
+    order: 2;
+  }
+
+  img {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+  }
+}

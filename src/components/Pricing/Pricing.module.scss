@@ -1,0 +1,129 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.section {
+  padding-block: 0 56px;
+
+  @include md {
+    padding-block: 0 100px;
+  }
+}
+
+.banner {
+  position: relative;
+  background: #2f2f35;
+  color: $color-white;
+  border-radius: $radius-xl;
+  padding: 40px 24px 36px;
+  text-align: center;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: $shadow-card;
+
+  @include md {
+    padding: 48px 40px 44px;
+  }
+
+  &::before {
+    content: "翻訳";
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: $font-display;
+    font-size: clamp(5rem, 22vw, 11rem);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: rgba(67, 149, 253, 0.07);
+    pointer-events: none;
+    user-select: none;
+  }
+}
+
+.headline {
+  position: relative;
+  z-index: 1;
+  margin: 0 0 24px;
+  font-size: 1.0625rem;
+  font-weight: 500;
+  line-height: 1.45;
+  color: $color-white;
+
+  @include md {
+    font-size: 1.125rem;
+    margin-bottom: 28px;
+  }
+}
+
+.prices {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 14px 24px;
+  margin-bottom: 28px;
+  text-align: center;
+
+  @include md {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px 32px;
+    max-width: 720px;
+    margin-inline: auto;
+    margin-bottom: 32px;
+  }
+}
+
+.priceLine {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.95);
+
+  @include md {
+    font-size: 1.0625rem;
+  }
+}
+
+.priceLabel {
+  font-weight: 500;
+}
+
+.priceAmount {
+  font-family: $font-display;
+  font-weight: 600;
+  color: $color-white;
+}
+
+.cta {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 320px;
+  margin-inline: auto;
+}
+
+.footnote {
+  position: relative;
+  z-index: 1;
+  margin: 20px 0 0;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: #ff6b6b;
+
+  @include md {
+    font-size: 0.875rem;
+    max-width: 640px;
+    margin-inline: auto;
+  }
+
+  a {
+    color: inherit;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+
+    &:hover {
+      color: #ff9b9b;
+    }
+  }
+}

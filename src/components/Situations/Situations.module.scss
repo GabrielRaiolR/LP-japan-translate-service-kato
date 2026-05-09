@@ -1,0 +1,88 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.section {
+  padding-block: 0 56px;
+
+  @include md {
+    padding-block: 0 100px;
+  }
+}
+
+.panel {
+  background: $color-secondary;
+  color: $color-white;
+  border-radius: $radius-xl;
+  padding: 36px 28px;
+
+  @include md {
+    padding: 70px 60px;
+  }
+}
+
+.grid {
+  display: grid;
+  gap: 32px;
+
+  @include md {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0;
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  &:not(:last-child) {
+    padding-bottom: 32px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+
+    @include md {
+      padding-bottom: 0;
+      padding-right: 32px;
+      border-bottom: none;
+      border-right: 1px solid rgba(255, 255, 255, 0.3);
+    }
+  }
+
+  @include md {
+    &:not(:first-child) {
+      padding-left: 32px;
+    }
+  }
+}
+
+.text {
+  font-size: 1.125rem;
+  line-height: 1.45;
+  color: $color-white;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: $color-primary;
+  font-size: 1.25rem;
+  font-weight: 400;
+  text-decoration: none;
+  margin-top: auto;
+  transition: gap 0.2s ease;
+
+  svg {
+    width: 22px;
+    height: 22px;
+    display: block;
+    transition: transform 0.2s ease;
+  }
+
+  &:hover {
+    gap: 16px;
+
+    svg {
+      transform: translateX(2px);
+    }
+  }
+}

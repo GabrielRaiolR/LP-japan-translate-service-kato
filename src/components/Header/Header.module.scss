@@ -1,0 +1,187 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: $color-white;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding-block: 22px;
+
+  @include lg {
+    padding-block: 28px;
+  }
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.logo {
+  height: 28px;
+  width: auto;
+
+  @include md {
+    height: 32px;
+  }
+
+  @include lg {
+    height: 36px;
+  }
+}
+
+.nav {
+  display: none;
+
+  @include lg {
+    display: block;
+  }
+
+  ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 32px;
+  }
+
+  a {
+    position: relative;
+    font-size: 1.125rem;
+    font-weight: 400;
+    color: $color-text;
+    transition: color 0.2s ease;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 2px;
+      background: $color-secondary;
+      transition: width 0.25s ease;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+}
+
+.actions {
+  display: none;
+
+  @include lg {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+}
+
+.burger {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  background: transparent;
+  border: 1px solid $color-secondary;
+  border-radius: $radius-sm;
+  cursor: pointer;
+  padding: 0;
+
+  span {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: $color-secondary;
+    border-radius: 2px;
+    transition: transform 0.25s ease, opacity 0.2s ease;
+  }
+
+  @include lg {
+    display: none;
+  }
+}
+
+.burgerOpen {
+  span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  span:nth-child(2) {
+    opacity: 0;
+  }
+  span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+}
+
+.mobile {
+  position: fixed;
+  inset: 76px 0 0 0;
+  background: $color-white;
+  padding: 24px 20px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  transform: translateY(-12px);
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+  border-top: 1px solid $color-bg-light;
+  z-index: 40;
+
+  @include lg {
+    display: none;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  a {
+    display: block;
+    padding: 14px 16px;
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: $color-text;
+    border-radius: $radius-sm;
+    transition: background 0.2s ease, color 0.2s ease;
+
+    &:hover {
+      background: $color-bg-light;
+      color: $color-secondary;
+    }
+  }
+}
+
+.mobileOpen {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  visibility: visible;
+}
+
+.mobileCta {
+  width: 100%;
+}

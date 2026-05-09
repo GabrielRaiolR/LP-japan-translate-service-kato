@@ -1,0 +1,206 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.section {
+  padding-block: 0 56px;
+
+  @include md {
+    padding-block: 0 100px;
+  }
+}
+
+.grid {
+  display: grid;
+  gap: 24px;
+
+  @include lg {
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 30px;
+    align-items: stretch;
+  }
+}
+
+.card {
+  background: $color-bg-light;
+  border: 1px solid $color-secondary;
+  border-radius: $radius-xl;
+  padding: 36px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  box-shadow: $shadow-card;
+
+  @include md {
+    padding: 50px 60px;
+  }
+}
+
+.cardHead {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cardTitle {
+  font-family: $font-display;
+  font-size: 1.75rem;
+  font-weight: 500;
+  color: $color-text;
+  letter-spacing: -0.01em;
+}
+
+.cardSubtitle {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: $color-text;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.row {
+  display: grid;
+  gap: 20px;
+
+  @include sm {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  > span {
+    font-size: 1rem;
+    line-height: 1.55;
+    color: $color-text;
+  }
+
+  input,
+  select,
+  textarea {
+    width: 100%;
+    background: $color-white;
+    border: 1px solid $color-secondary;
+    border-radius: $radius-md;
+    padding: 16px 24px;
+    font-size: 1rem;
+    color: $color-text;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+    &:focus {
+      outline: none;
+      border-color: $color-primary;
+      box-shadow: 0 0 0 3px rgba(67, 149, 253, 0.2);
+    }
+
+    &::placeholder {
+      color: #898989;
+    }
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 130px;
+  }
+
+  select {
+    appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23002794' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 20px center;
+    padding-right: 48px;
+  }
+}
+
+.success {
+  font-size: 0.95rem;
+  color: $color-secondary;
+  background: rgba(67, 149, 253, 0.12);
+  padding: 12px 16px;
+  border-radius: $radius-md;
+
+  a {
+    color: $color-primary;
+    font-weight: 500;
+    text-decoration: underline;
+  }
+}
+
+.contactList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    strong {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: $color-secondary;
+      margin-bottom: 4px;
+    }
+
+    a,
+    span {
+      color: $color-text;
+      font-size: 1.0625rem;
+      text-decoration: none;
+      word-break: break-word;
+      transition: color 0.2s ease;
+    }
+
+    a:hover {
+      color: $color-primary;
+    }
+  }
+}
+
+.iconWrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: $color-primary;
+  color: $color-white;
+  flex-shrink: 0;
+
+  svg {
+    width: 22px;
+    height: 22px;
+    display: block;
+  }
+}
+
+.directIllustration {
+  display: flex;
+  justify-content: center;
+  margin-block: 8px;
+
+  img {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+  }
+}
+
+.directCta {
+  width: 100%;
+  margin-top: auto;
+}

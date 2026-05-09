@@ -1,0 +1,64 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.section {
+  padding-block: 0 56px;
+
+  @include md {
+    padding-block: 0 100px;
+  }
+}
+
+.strip {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px 24px;
+  list-style: none;
+  margin: 0;
+  padding: 24px 24px;
+  background: $color-bg-light;
+  border-radius: $radius-md;
+
+  @include sm {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  @include md {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    padding: 24px 32px;
+  }
+}
+
+.item {
+  font-family: $font-display;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: $color-text;
+  text-align: center;
+  position: relative;
+
+  @include md {
+    font-size: 1rem;
+  }
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 10px;
+  color: $color-primary;
+
+  svg {
+    width: 22px;
+    height: 22px;
+    display: block;
+  }
+
+  @include md {
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}

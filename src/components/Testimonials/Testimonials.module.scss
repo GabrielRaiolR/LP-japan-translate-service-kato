@@ -1,0 +1,185 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.section {
+  padding-block: 0 56px;
+
+  @include md {
+    padding-block: 0 100px;
+  }
+}
+
+.stage {
+  background: $color-secondary;
+  border-radius: $radius-xl;
+  padding: 36px 24px 28px;
+  color: $color-white;
+  overflow: visible;
+
+  @include md {
+    padding: 70px 60px 60px;
+  }
+}
+
+.viewport {
+  overflow: hidden;
+  margin-bottom: 32px;
+
+  @include md {
+    margin-bottom: 60px;
+  }
+}
+
+.track {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.slide {
+  flex: 0 0 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  padding: 4px;
+}
+
+.bubble {
+  position: relative;
+  width: 100%;
+  max-width: 606px;
+  margin-inline: auto;
+  min-height: 8rem;
+}
+
+.bubbleSvg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.quote {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  box-sizing: border-box;
+  padding: clamp(40px, 11vmin, 72px) clamp(36px, 9vmin, 64px)
+    clamp(44px, 10vmin, 76px);
+  padding-right: clamp(40px, 11vmin, 72px);
+  padding-top: clamp(48px, 12vmin, 80px);
+  font-size: clamp(0.9375rem, 2.6vw, 1.125rem);
+  line-height: 1.55;
+  color: $color-white;
+  text-align: left;
+  overflow-wrap: anywhere;
+  hyphens: auto;
+
+  @include md {
+    padding: clamp(52px, 8vmin, 76px) clamp(48px, 7vmin, 72px)
+      clamp(56px, 8vmin, 84px);
+    padding-right: clamp(52px, 9vmin, 80px);
+    padding-top: clamp(56px, 9vmin, 84px);
+  }
+}
+
+.author {
+  text-align: left;
+  padding-left: 32px;
+  max-width: 606px;
+  margin-inline: auto;
+  width: 100%;
+
+  @include md {
+    padding-left: 80px;
+  }
+}
+
+.authorName {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: $color-primary;
+  margin-bottom: 4px;
+
+  @include md {
+    font-size: 1.25rem;
+  }
+}
+
+.authorRole {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.85);
+
+  @include md {
+    font-size: 1.125rem;
+  }
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  max-width: 564px;
+  margin-inline: auto;
+
+  @include md {
+    justify-content: space-between;
+  }
+}
+
+.navBtn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+
+  &:hover {
+    transform: translateX(2px);
+  }
+
+  &:first-child:hover {
+    transform: translateX(-2px);
+  }
+
+  img {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+.dots {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+
+  @include md {
+    gap: 22px;
+  }
+}
+
+.dot {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s ease;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  img {
+    width: 16px;
+    height: 16px;
+  }
+}

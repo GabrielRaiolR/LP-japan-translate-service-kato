@@ -1,0 +1,82 @@
+@use "variables" as *;
+
+// ============================================
+// Media queries
+// ============================================
+@mixin sm {
+  @media (min-width: $bp-sm) {
+    @content;
+  }
+}
+@mixin md {
+  @media (min-width: $bp-md) {
+    @content;
+  }
+}
+@mixin lg {
+  @media (min-width: $bp-lg) {
+    @content;
+  }
+}
+@mixin xl {
+  @media (min-width: $bp-xl) {
+    @content;
+  }
+}
+
+// ============================================
+// Container: ocupa 100% da coluna (padding fica no .page em App)
+// ============================================
+@mixin container {
+  width: 100%;
+  margin-inline: 0;
+  padding-inline: 0;
+}
+
+// ============================================
+// Heading badge — pílula sólida (cor primária com texto branco)
+// Equivalente ao "bg-[#B9FF66] text-[#191A23]" do modelo
+// ============================================
+@mixin heading-badge($bg: $color-primary, $color: $color-white) {
+  display: inline-block;
+  width: fit-content;
+  background: $bg;
+  color: $color;
+  padding: 4px 10px;
+  border-radius: $radius-sm;
+  font-weight: 500;
+  line-height: 1;
+}
+
+// ============================================
+// Card "stack" igual ao modelo (borda + sombra sólida embaixo)
+// ============================================
+@mixin card-stack($bg: $color-white) {
+  background: $bg;
+  border: 1px solid $color-secondary;
+  border-radius: $radius-xl;
+  box-shadow: $shadow-card;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $shadow-card-hover;
+  }
+}
+
+// ============================================
+// Section heading layout (badge + subtítulo lado a lado)
+// ============================================
+@mixin section-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 40px;
+
+  @include md {
+    flex-direction: row;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 64px;
+  }
+}

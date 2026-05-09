@@ -1,0 +1,44 @@
+// ============================================
+// Paleta de cores da marca
+// ============================================
+$color-primary: #4395fd;
+$color-primary-dark: #2f7be0;
+$color-primary-soft: #e8f1ff;
+
+$color-secondary: #002794;
+$color-secondary-dark: #001a66;
+
+$color-bg-light: #f3f3f3;
+$color-white: #ffffff;
+$color-text: #111111;
+$color-muted: #4a5165;
+$color-border: #002794;
+
+// ============================================
+// Tipografia
+// ============================================
+$font-display: "Space Grotesk", "Plus Jakarta Sans", system-ui, -apple-system,
+  sans-serif;
+$font-body: "Space Grotesk", "Plus Jakarta Sans", system-ui, -apple-system,
+  sans-serif;
+
+// ============================================
+// Layout
+// ============================================
+$container-max: 1240px;
+$radius-sm: 7px;
+$radius-md: 14px;
+$radius-lg: 28px;
+$radius-xl: 45px;
+
+// Sombra "stack" idêntica ao modelo (offset sólido + cor escura)
+$shadow-card: 0 5px 0 0 #{$color-secondary};
+$shadow-card-hover: 0 10px 0 0 #{$color-secondary};
+
+// ============================================
+// Breakpoints
+// ============================================
+$bp-sm: 640px;
+$bp-md: 768px;
+$bp-lg: 1024px;
+$bp-xl: 1280px;

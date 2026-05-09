@@ -1,0 +1,192 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.section {
+  padding-block: 0 56px;
+
+  @include md {
+    padding-block: 0 100px;
+  }
+}
+
+.grid {
+  display: grid;
+  gap: 24px;
+
+  @include md {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 40px;
+  }
+}
+
+.card {
+  @include card-stack($color-bg-light);
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 28px;
+  min-height: 280px;
+
+  @include md {
+    padding: 50px;
+    min-height: 310px;
+  }
+}
+
+.card--light {
+  background: $color-bg-light;
+
+  .titlePill {
+    background: $color-primary;
+    color: $color-white;
+  }
+
+  .cardIcon {
+    color: $color-secondary;
+  }
+}
+
+.card--primary {
+  background: $color-primary;
+  color: $color-text;
+  border-color: $color-secondary;
+
+  .titlePill {
+    background: $color-bg-light;
+    color: $color-text;
+  }
+
+  .cardIcon {
+    color: $color-secondary;
+  }
+}
+
+.card--dark {
+  background: $color-secondary;
+  color: $color-white;
+  border-color: $color-secondary;
+
+  .titlePill {
+    background: $color-primary;
+    color: $color-white;
+  }
+
+  .cardText,
+  .cardExtra {
+    color: rgba(255, 255, 255, 0.92);
+  }
+
+  .cardExtra {
+    border-top-color: rgba(255, 255, 255, 0.18);
+  }
+
+  .cardLink {
+    color: $color-white;
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+
+  .cardIcon {
+    color: $color-white;
+  }
+
+  .arrow {
+    background: $color-white;
+    color: $color-secondary;
+  }
+}
+
+.cardHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.titleStack {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.titlePill {
+  @include heading-badge;
+  font-family: $font-display;
+  font-size: clamp(1.25rem, 1.8vw, 1.5rem);
+  padding: 4px 10px;
+}
+
+.cardIcon {
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  @include md {
+    width: 56px;
+    height: 56px;
+  }
+}
+
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  flex: 1;
+}
+
+.cardText {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.cardExtra {
+  font-size: 0.92rem;
+  line-height: 1.55;
+  padding-top: 12px;
+  border-top: 1px dashed rgba(0, 39, 148, 0.2);
+}
+
+.cardLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: $color-secondary;
+  font-weight: 500;
+  font-size: 1rem;
+  text-decoration: none;
+  margin-top: auto;
+  transition: gap 0.2s ease;
+
+  &:hover {
+    gap: 16px;
+  }
+}
+
+.arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 41px;
+  height: 41px;
+  border-radius: 50%;
+  background: $color-secondary;
+  flex-shrink: 0;
+  color: $color-white;
+
+  svg {
+    display: block;
+  }
+}
