@@ -1,7 +1,12 @@
 import Container from "../ui/Container.jsx";
 import SectionHeader from "../ui/SectionHeader.jsx";
 import Button from "../ui/Button.jsx";
-import { documentPricing, contact } from "../../data/site.js";
+import {
+  pricing,
+  contact,
+  pricingFootnoteLead,
+  pricingFootnoteTail,
+} from "../../data/site.js";
 import styles from "./Pricing.module.scss";
 
 function Pricing() {
@@ -15,54 +20,65 @@ function Pricing() {
         <SectionHeader
           id="pricing-title"
           title="Valores"
-          subtitle="Tradução de documentos: valores por folha em ienes (円). Outros serviços sob consulta pelo formulário ou WhatsApp."
+          subtitle="Investimento por tipo de solicitação. Tradução de documentos com preço fixo por folha; assessoria combinada caso a caso."
         />
 
-        <div className={styles.banner}>
-          <p className={styles.headline}>{documentPricing.headline}</p>
-
-          <div className={styles.prices}>
-            <p className={styles.priceLine}>
-              <span className={styles.priceLabel}>
-                {documentPricing.simpleLabel}:
-              </span>{" "}
-              <strong className={styles.priceAmount}>
-                {documentPricing.simplePrice}
-              </strong>{" "}
-              {documentPricing.perPage}
-            </p>
-            <p className={styles.priceLine}>
-              <span className={styles.priceLabel}>
-                {documentPricing.extensiveLabel}:
-              </span>{" "}
-              <strong className={styles.priceAmount}>
-                {documentPricing.extensivePrice}
-              </strong>{" "}
-              {documentPricing.perPage}
-            </p>
-          </div>
-
-          <Button
-            href={documentPricing.ctaHref}
-            variant="light"
-            size="lg"
-            className={styles.cta}
-          >
-            {documentPricing.cta}
-          </Button>
-
-          <p className={styles.footnote}>
-            {documentPricing.footnoteLead}
-            <a
-              href={contact.whatsappLink}
-              target="_blank"
-              rel="noopener noreferrer"
+        <div className={styles.grid}>
+          {pricing.map((plan) => (
+            <article
+              key={plan.title}
+              className={`${styles.plan} ${styles[`plan--${plan.variant}`]} ${
+                plan.featured ? styles.featured : ""
+              }`}
             >
-              Whatsapp
-            </a>
-            {documentPricing.footnoteTail}
-          </p>
+              {plan.featured && (
+                <span className={styles.badge}>Mais procurado</span>
+              )}
+
+              <header className={styles.head}>
+                <h3 className={styles.title}>{plan.title}</h3>
+                <p className={styles.desc}>{plan.description}</p>
+              </header>
+
+              <div className={styles.price}>
+                <strong>{plan.price}</strong>
+                <span>{plan.priceSuffix}</span>
+              </div>
+
+              <ul className={styles.features}>
+                {plan.features.map((f) => (
+                  <li key={f}>{f}</li>
+                ))}
+              </ul>
+
+              <Button
+                href={plan.href}
+                external={plan.external}
+                variant={
+                  plan.variant === "primary" || plan.variant === "dark"
+                    ? "light"
+                    : "dark"
+                }
+                size="lg"
+                className={styles.cta}
+              >
+                {plan.cta}
+              </Button>
+            </article>
+          ))}
         </div>
+
+        <p className={styles.note}>
+          {pricingFootnoteLead}
+          <a
+            href={contact.whatsappLink}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Whatsapp
+          </a>
+          {pricingFootnoteTail}
+        </p>
       </Container>
     </section>
   );

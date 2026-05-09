@@ -9,111 +9,183 @@
   }
 }
 
-.banner {
+.grid {
+  display: grid;
+  gap: 24px;
+
+  @include md {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 30px;
+    align-items: stretch;
+  }
+}
+
+.plan {
   position: relative;
-  background: #2f2f35;
-  color: $color-white;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  background: $color-bg-light;
+  border: 1px solid $color-secondary;
   border-radius: $radius-xl;
-  padding: 40px 24px 36px;
-  text-align: center;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 36px 28px;
   box-shadow: $shadow-card;
 
   @include md {
-    padding: 48px 40px 44px;
-  }
-
-  &::before {
-    content: "翻訳";
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: $font-display;
-    font-size: clamp(5rem, 22vw, 11rem);
-    font-weight: 600;
-    letter-spacing: -0.02em;
-    color: rgba(67, 149, 253, 0.07);
-    pointer-events: none;
-    user-select: none;
+    padding: 44px 36px;
   }
 }
 
-.headline {
-  position: relative;
-  z-index: 1;
-  margin: 0 0 24px;
-  font-size: 1.0625rem;
-  font-weight: 500;
-  line-height: 1.45;
+.plan--light {
+  background: $color-bg-light;
+}
+
+.plan--primary {
+  background: $color-primary;
+  color: $color-text;
+}
+
+.plan--dark {
+  background: $color-secondary;
   color: $color-white;
 
-  @include md {
-    font-size: 1.125rem;
-    margin-bottom: 28px;
+  .title,
+  .price strong {
+    color: $color-white;
+  }
+
+  .desc,
+  .price span,
+  .features li {
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  .features li::before {
+    background: $color-primary;
+  }
+
+  .price {
+    border-color: rgba(255, 255, 255, 0.25);
   }
 }
 
-.prices {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  gap: 14px 24px;
-  margin-bottom: 28px;
-  text-align: center;
-
+.featured {
   @include md {
-    grid-template-columns: 1fr 1fr;
-    gap: 16px 32px;
-    max-width: 720px;
-    margin-inline: auto;
-    margin-bottom: 32px;
+    transform: translateY(-12px);
+    box-shadow: 0 15px 0 0 #{$color-secondary};
+
+    &:hover {
+      transform: translateY(-12px);
+    }
   }
 }
 
-.priceLine {
-  margin: 0;
-  font-size: 1rem;
-  line-height: 1.5;
-  color: rgba(255, 255, 255, 0.95);
-
-  @include md {
-    font-size: 1.0625rem;
-  }
-}
-
-.priceLabel {
+.badge {
+  position: absolute;
+  top: -14px;
+  left: 28px;
+  background: $color-secondary;
+  color: $color-white;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 0.78rem;
   font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
-.priceAmount {
+.head {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.title {
   font-family: $font-display;
-  font-weight: 600;
-  color: $color-white;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: $color-text;
+  letter-spacing: -0.01em;
+}
+
+.desc {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: $color-text;
+}
+
+.price {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 18px 0;
+  border-top: 1px solid $color-secondary;
+  border-bottom: 1px solid $color-secondary;
+
+  strong {
+    font-family: $font-display;
+    font-size: 1.875rem;
+    font-weight: 500;
+    color: $color-text;
+    letter-spacing: -0.01em;
+  }
+
+  span {
+    font-size: 0.92rem;
+    color: $color-text;
+    opacity: 0.7;
+  }
+}
+
+.features {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 1rem;
+    line-height: 1.4;
+    color: $color-text;
+    position: relative;
+    padding-left: 22px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: $color-secondary;
+      flex-shrink: 0;
+    }
+  }
 }
 
 .cta {
-  position: relative;
-  z-index: 1;
+  margin-top: auto;
   width: 100%;
-  max-width: 320px;
-  margin-inline: auto;
 }
 
-.footnote {
-  position: relative;
-  z-index: 1;
-  margin: 20px 0 0;
-  font-size: 0.8125rem;
-  line-height: 1.5;
-  color: #ff6b6b;
+.note {
+  margin-top: 28px;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: #c81e1e;
+  text-align: center;
+  max-width: 560px;
+  margin-inline: auto;
 
   @include md {
-    font-size: 0.875rem;
+    font-size: 0.9rem;
     max-width: 640px;
-    margin-inline: auto;
   }
 
   a {
@@ -123,7 +195,7 @@
     text-underline-offset: 2px;
 
     &:hover {
-      color: #ff9b9b;
+      color: $color-secondary;
     }
   }
 }

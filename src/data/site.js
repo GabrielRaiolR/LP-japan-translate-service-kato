@@ -169,20 +169,63 @@ export const processSteps = [
   },
 ];
 
-/** Secção #valores — preços por folha (tradução de documentos). */
-export const documentPricing = {
-  headline: "Clique no botão abaixo para enviar documentos",
-  simpleLabel: "Documento simples",
-  simplePrice: "1,250円",
-  extensiveLabel: "Documento extenso",
-  extensivePrice: "1,500円",
-  perPage: "por folha",
-  footnoteLead:
-    "*Após envio dos documentos, realize o pagamento e nos envie uma mensagem no ",
-  footnoteTail: " com comprovante",
-  cta: "Enviar documentos",
-  ctaHref: "#contato",
-};
+/** Nota abaixo dos cards (#valores) — primeira parte antes do link do WhatsApp. */
+export const pricingFootnoteLead =
+  "*Após envio dos documentos, realize o pagamento e nos envie uma mensagem no ";
+export const pricingFootnoteTail = " com comprovante";
+
+export const pricing = [
+  {
+    title: "Documento simples",
+    description:
+      "Traduação por folha para documentos curtos, formulários e comprovantes de baixa complexidade.",
+    price: "1,250円",
+    priceSuffix: "por folha",
+    features: [
+      "Valor por página (documento simples)",
+      "Análise do material enviado",
+      "Entrega digital",
+      "Atendimento em português",
+    ],
+    cta: "Enviar documentos",
+    variant: "light",
+    href: "#contato",
+  },
+  {
+    title: "Documento extenso",
+    description:
+      "Para documentos com mais volume, termos técnicos, informações oficiais ou maior detalhe.",
+    price: "1,500円",
+    priceSuffix: "por folha",
+    features: [
+      "Valor por página (documento extenso)",
+      "Leitura cuidadosa do contexto",
+      "Combinar prazo e formato da entrega",
+      "Orientação antes e depois do envio",
+    ],
+    cta: "Enviar documentos",
+    variant: "primary",
+    featured: true,
+    href: "#contato",
+  },
+  {
+    title: "Assessoria personalizada",
+    description:
+      "Agendamentos, contatos, contratação de serviços, suporte em japonês e demandas do dia a dia.",
+    price: "Sob consulta",
+    priceSuffix: "valor conforme demanda",
+    features: [
+      "Atendimento individual",
+      "Suporte na comunicação em japonês",
+      "Orientação em português",
+      "Acompanhamento conforme a necessidade",
+    ],
+    cta: "Falar pelo WhatsApp",
+    variant: "dark",
+    href: contact.whatsappLink,
+    external: true,
+  },
+];
 
 export const testimonials = [
   {
