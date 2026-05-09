@@ -48,7 +48,13 @@
   width: 100%;
   max-width: 606px;
   margin-inline: auto;
-  min-height: 8rem;
+  min-height: 0;
+  aspect-ratio: 606 / 266;
+
+  @include md {
+    min-height: 8rem;
+    aspect-ratio: auto;
+  }
 }
 
 .bubbleSvg {
@@ -62,26 +68,34 @@
 }
 
 .quote {
-  position: relative;
+  position: absolute;
   z-index: 1;
   margin: 0;
   box-sizing: border-box;
-  padding: clamp(40px, 11vmin, 72px) clamp(36px, 9vmin, 64px)
-    clamp(44px, 10vmin, 76px);
-  padding-right: clamp(40px, 11vmin, 72px);
-  padding-top: clamp(48px, 12vmin, 80px);
-  font-size: clamp(0.9375rem, 2.6vw, 1.125rem);
-  line-height: 1.55;
+  inset: 16% 13% 18% 13%;
+  padding: 0;
+  font-size: clamp(0.72rem, 2.35vw, 0.95rem);
+  line-height: 1.32;
   color: $color-white;
   text-align: left;
   overflow-wrap: anywhere;
   hyphens: auto;
 
   @include md {
+    position: relative;
+    inset: auto;
     padding: clamp(52px, 8vmin, 76px) clamp(48px, 7vmin, 72px)
       clamp(56px, 8vmin, 84px);
-    padding-right: clamp(52px, 9vmin, 80px);
-    padding-top: clamp(56px, 9vmin, 84px);
+    font-size: clamp(0.9375rem, 2.6vw, 1.125rem);
+    line-height: 1.55;
+  }
+}
+
+@media (max-width: 390px) {
+  .quote {
+    inset: 17% 12% 20% 12%;
+    font-size: 0.68rem;
+    line-height: 1.28;
   }
 }
 

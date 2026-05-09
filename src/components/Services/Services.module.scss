@@ -48,13 +48,12 @@
 }
 
 .card--primary {
-  background: $color-primary;
-  color: $color-text;
+  background: $color-bg-light;
   border-color: $color-secondary;
 
   .titlePill {
-    background: $color-bg-light;
-    color: $color-text;
+    background: $color-primary;
+    color: $color-white;
   }
 
   .cardIcon {
@@ -63,8 +62,8 @@
 }
 
 .card--dark {
-  background: $color-secondary;
-  color: $color-white;
+  background: $color-bg-light;
+  color: $color-text;
   border-color: $color-secondary;
 
   .titlePill {
@@ -74,15 +73,15 @@
 
   .cardText,
   .cardExtra {
-    color: rgba(255, 255, 255, 0.92);
+    color: $color-text;
   }
 
   .cardExtra {
-    border-top-color: rgba(255, 255, 255, 0.18);
+    border-top-color: rgba(0, 39, 148, 0.2);
   }
 
   .cardLink {
-    color: $color-white;
+    color: $color-secondary;
 
     &:hover {
       color: $color-primary;
@@ -90,12 +89,12 @@
   }
 
   .cardIcon {
-    color: $color-white;
+    color: $color-secondary;
   }
 
   .arrow {
-    background: $color-white;
-    color: $color-secondary;
+    background: $color-secondary;
+    color: $color-white;
   }
 }
 

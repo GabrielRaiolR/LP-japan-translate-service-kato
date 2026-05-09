@@ -64,7 +64,7 @@
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  color: $color-primary;
+  color: #9fcbff;
   font-size: 1.25rem;
   font-weight: 400;
   text-decoration: none;
@@ -80,6 +80,7 @@
 
   &:hover {
     gap: 16px;
+    color: $color-white;
 
     svg {
       transform: translateX(2px);
