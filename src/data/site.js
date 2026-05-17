@@ -25,8 +25,8 @@ export const assetsCacheQuery = "?v=7";
 export const navItems = [
   { label: "Serviços e valores", href: "#valores" },
   { label: "Como funciona", href: "#como-funciona" },
-  { label: "Depoimentos", href: "#depoimentos" },
   { label: "Contato", href: "#contato" },
+  { label: "Depoimentos", href: "#depoimentos" },
 ];
 
 export const hero = {
