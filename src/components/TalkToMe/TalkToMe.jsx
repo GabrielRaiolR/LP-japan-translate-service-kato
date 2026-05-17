@@ -23,6 +23,7 @@ function TalkToMe() {
     const params = new URLSearchParams(window.location.search);
     const service = params.get("service");
     if (service) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setForm((prev) => ({ ...prev, serviceType: service }));
     }
   }, []);
@@ -125,8 +126,7 @@ function TalkToMe() {
               {sent && (
                 <p className={styles.success} role="status">
                   Abrindo seu app de e-mail. Se não abrir, envie manualmente
-                  para{" "}
-                  <a href={`mailto:${contact.email}`}>{contact.email}</a>.
+                  para <a href={`mailto:${contact.email}`}>{contact.email}</a>.
                 </p>
               )}
             </form>
