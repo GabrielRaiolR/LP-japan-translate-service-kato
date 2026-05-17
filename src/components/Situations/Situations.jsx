@@ -14,7 +14,7 @@ function Situations() {
         <SectionHeader
           id="situations-title"
           title="O que posso ajudar?"
-          subtitle="Atendimento pensado para as necessidades reais de estrangeiros que vivem ou pretendem viver no Japão."
+          subtitle="Vistos, elegibilidade, traduções e documentos oficiais no Japão."
         />
 
         <div className={styles.panel}>
@@ -22,7 +22,7 @@ function Situations() {
             {situations.map((s) => (
               <article key={s.id} className={styles.card}>
                 <p className={styles.text}>{s.text}</p>
-                <a className={styles.link} href="#contato">
+                <a className={styles.link} href={s.href || "#valores"}>
                   <span>{s.cta}</span>
                   <ArrowUpRightIcon />
                 </a>

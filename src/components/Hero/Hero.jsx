@@ -1,5 +1,6 @@
 import Container from "../ui/Container.jsx";
 import Button from "../ui/Button.jsx";
+import { hero } from "../../data/site.js";
 import styles from "./Hero.module.scss";
 
 function Hero() {
@@ -7,20 +8,17 @@ function Hero() {
     <section id="top" className={`${styles.hero} animate-section`}>
       <Container className={styles.inner}>
         <div className={styles.copy}>
-          <h1 className={styles.title}>
-            Traduções e assessoria para estrangeiros no Japão
-          </h1>
-          <p className={styles.subtitle}>
-            Suporte em português para quem precisa traduzir documentos, resolver
-            situações do dia a dia, agendar serviços, se comunicar em japonês e
-            lidar com processos importantes com mais segurança e tranquilidade.
-          </p>
+          <h1 className={styles.title}>{hero.title}</h1>
+          <p className={styles.subtitle}>{hero.subtitle}</p>
+          {hero.trustLine && (
+            <p className={styles.trustLine}>{hero.trustLine}</p>
+          )}
           <div className={styles.actions}>
-            <Button href="#contato" variant="dark" size="lg">
-              Solicitar orçamento
+            <Button href={hero.primaryCta.href} variant="dark" size="lg">
+              {hero.primaryCta.label}
             </Button>
-            <Button href="#servicos" variant="outline" size="lg">
-              Ver serviços
+            <Button href={hero.secondaryCta.href} variant="outline" size="lg">
+              {hero.secondaryCta.label}
             </Button>
           </div>
         </div>
@@ -28,7 +26,7 @@ function Hero() {
         <div className={styles.visual}>
           <img
             src="/assets/Hero-Section-Ilustracao.svg"
-            alt="Ilustração de assessoria e tradução para estrangeiros no Japão"
+            alt="Ilustração de apoio documental para brasileiros no Japão"
             loading="eager"
           />
         </div>

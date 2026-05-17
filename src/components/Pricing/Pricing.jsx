@@ -1,15 +1,99 @@
+import { useState } from "react";
 import Container from "../ui/Container.jsx";
 import SectionHeader from "../ui/SectionHeader.jsx";
 import Button from "../ui/Button.jsx";
 import {
-  pricing,
+  serviceCatalog,
+  servicesDisclaimer,
   contact,
   pricingFootnoteLead,
   pricingFootnoteTail,
+  getServiceContactHref,
 } from "../../data/site.js";
 import styles from "./Pricing.module.scss";
 
+function CatalogItem({ item, isOpen, onToggle, panelId, buttonId }) {
+  const hasDocuments = item.documents?.length > 0;
+
+  return (
+    <article
+      className={`${styles.catalogItem} ${isOpen ? styles.catalogItemOpen : ""}`}
+    >
+      <button
+        type="button"
+        className={styles.catalogHead}
+        onClick={onToggle}
+        aria-expanded={isOpen}
+        aria-controls={panelId}
+        id={buttonId}
+      >
+        <span className={styles.catalogTitle}>{item.title}</span>
+        <span className={styles.catalogChevron} aria-hidden="true">
+          {isOpen ? "▲" : "▼"}
+        </span>
+      </button>
+
+      <div
+        id={panelId}
+        role="region"
+        aria-labelledby={buttonId}
+        className={`${styles.catalogPanel} ${isOpen ? styles.catalogPanelOpen : ""}`}
+      >
+        <div className={styles.catalogInner}>
+          <p className={styles.catalogDesc}>{item.description}</p>
+
+          <p className={styles.catalogPrice}>
+            {item.priceNote && (
+              <span className={styles.priceNote}>{item.priceNote} </span>
+            )}
+            <strong>{item.price}</strong>
+          </p>
+
+          {item.disclaimers?.length > 0 && (
+            <ul className={styles.disclaimers}>
+              {item.disclaimers.map((d) => (
+                <li key={d}>⚠️ {d}</li>
+              ))}
+            </ul>
+          )}
+
+          {hasDocuments && (
+            <div className={styles.documents}>
+              <h4 className={styles.documentsTitle}>Documentos necessários</h4>
+              <ul>
+                {item.documents.map((doc) => (
+                  <li key={doc}>{doc}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {!hasDocuments && (
+            <p className={styles.documentsPending}>
+              A lista de documentos para este serviço será publicada em breve.
+              Entre em contato para orientação inicial.
+            </p>
+          )}
+
+          <Button
+            href={getServiceContactHref(item.title)}
+            variant="dark"
+            size="md"
+            className={styles.catalogCta}
+          >
+            Solicitar atendimento
+          </Button>
+        </div>
+      </div>
+    </article>
+  );
+}
+
 function Pricing() {
+  const [openKey, setOpenKey] = useState(null);
+
+  const toggle = (key) => setOpenKey((prev) => (prev === key ? null : key));
+
   return (
     <section
       id="valores"
@@ -19,52 +103,37 @@ function Pricing() {
       <Container>
         <SectionHeader
           id="pricing-title"
-          title="Valores"
-          subtitle="Investimento por tipo de solicitação. Tradução de documentos com preço fixo por folha; assessoria combinada caso a caso."
+          title="Serviços e valores"
+          subtitle="Apoio documental com preços transparentes. Valores da tabela vigente; selos e taxas oficiais são pagos à parte."
         />
 
-        <div className={styles.grid}>
-          {pricing.map((plan) => (
-            <article
-              key={plan.title}
-              className={`${styles.plan} ${styles[`plan--${plan.variant}`]} ${
-                plan.featured ? styles.featured : ""
-              }`}
-            >
-              {plan.featured && (
-                <span className={styles.badge}>Mais procurado</span>
-              )}
+        <aside className={styles.disclaimer} role="note">
+          <p>{servicesDisclaimer}</p>
+        </aside>
 
-              <header className={styles.head}>
-                <h3 className={styles.title}>{plan.title}</h3>
-                <p className={styles.desc}>{plan.description}</p>
-              </header>
-
-              <div className={styles.price}>
-                <strong>{plan.price}</strong>
-                <span>{plan.priceSuffix}</span>
+        <div className={styles.catalog}>
+          {serviceCatalog.map((category) => (
+            <div key={category.id} className={styles.category}>
+              <h3 className={styles.categoryTitle}>{category.title}</h3>
+              <div className={styles.categoryItems}>
+                {category.items.map((item) => {
+                  const key = item.id;
+                  const isOpen = openKey === key;
+                  const panelId = `catalog-panel-${key}`;
+                  const buttonId = `catalog-button-${key}`;
+                  return (
+                    <CatalogItem
+                      key={key}
+                      item={item}
+                      isOpen={isOpen}
+                      onToggle={() => toggle(key)}
+                      panelId={panelId}
+                      buttonId={buttonId}
+                    />
+                  );
+                })}
               </div>
-
-              <ul className={styles.features}>
-                {plan.features.map((f) => (
-                  <li key={f}>{f}</li>
-                ))}
-              </ul>
-
-              <Button
-                href={plan.href}
-                external={plan.external}
-                variant={
-                  plan.variant === "primary" || plan.variant === "dark"
-                    ? "light"
-                    : "dark"
-                }
-                size="lg"
-                className={styles.cta}
-              >
-                {plan.cta}
-              </Button>
-            </article>
+            </div>
           ))}
         </div>
 
@@ -75,7 +144,7 @@ function Pricing() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Whatsapp
+            WhatsApp
           </a>
           {pricingFootnoteTail}
         </p>

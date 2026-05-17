@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Container from "../ui/Container.jsx";
 import SectionHeader from "../ui/SectionHeader.jsx";
 import Button from "../ui/Button.jsx";
@@ -19,6 +19,14 @@ function TalkToMe() {
   const [sent, setSent] = useState(false);
   const q = assetsCacheQuery ?? "";
 
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const service = params.get("service");
+    if (service) {
+      setForm((prev) => ({ ...prev, serviceType: service }));
+    }
+  }, []);
+
   const update = (field) => (e) =>
     setForm((prev) => ({ ...prev, [field]: e.target.value }));
 
@@ -38,7 +46,7 @@ function TalkToMe() {
         <SectionHeader
           id="contact-title"
           title="Fale comigo"
-          subtitle="Envie sua solicitação por e-mail. Atendimento em português, com retorno em até 24h."
+          subtitle="Escolha o serviço, envie sua mensagem e, se possível, consulte antes a lista em Serviços e valores."
         />
 
         <div className={styles.grid}>
@@ -47,7 +55,8 @@ function TalkToMe() {
               <h3 className={styles.cardTitle}>Envie sua solicitação</h3>
               <p className={styles.cardSubtitle}>
                 Preencha o formulário. Ao enviar, seu app de e-mail abrirá com a
-                mensagem formatada para {contact.email}.
+                mensagem formatada para {contact.email}. Veja preços e avisos em{" "}
+                <a href="#valores">Serviços e valores</a>.
               </p>
             </header>
 
@@ -103,7 +112,7 @@ function TalkToMe() {
                   name="message"
                   rows={5}
                   required
-                  placeholder="Conte um pouco sobre o que você precisa."
+                  placeholder="Ex.: preciso renovar o visto; já tenho Zairyu Card e passaporte válidos."
                   value={form.message}
                   onChange={update("message")}
                 />

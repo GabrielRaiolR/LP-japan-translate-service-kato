@@ -1,132 +1,219 @@
 // ===============================================================
 // Dados centralizados da landing page
-// Troque os placeholders abaixo pelos dados reais quando disponíveis.
 // ===============================================================
 
 export const brand = {
   name: "Kato Assessoria e Traduções",
   short: "Kato Assessoria",
-  tagline: "Traduções e assessoria para estrangeiros no Japão.",
-  /** Logo branca para o rodapé azul (equivalente ao Footer-Logo.svg do modelo Positivus). */
+  tagline: "Apoio documental para brasileiros no Japão.",
   footerLogo: "/assets/Footer-Logo.svg",
   logoHeader: "/assets/Logo-header-positivus.svg",
 };
 
-// >>> Contato <<<
 export const contact = {
   whatsapp: "+81 70 9132-0458",
   whatsappLink: "https://wa.me/817091320458",
-  /** Destino do formulário “Enviar solicitação” e textos de contato */
   email: "gabrielakato2203@gmail.com",
   instagram: "https://instagram.com/katoassessoria",
-  /** Código Pix copia e cola (não exibido na UI; só copiado pelo botão). */
   pixCode:
     "00020126580014BR.GOV.BCB.PIX0136ef291161-ef32-4333-8854-c9b19e00c8c75204000053039865802BR5924Gabriela Kato das Chagas6009SAO PAULO62140510NVoUJuOGcG630459D0",
   pixQr: "/assets/qrcode-pix.svg",
 };
 
-/** Query para forçar atualização de SVG em cache após trocar arquivos em /public/assets */
-export const assetsCacheQuery = "?v=6";
+export const assetsCacheQuery = "?v=7";
 
 export const navItems = [
-  { label: "Serviços", href: "#servicos" },
+  { label: "Serviços e valores", href: "#valores" },
   { label: "Como funciona", href: "#como-funciona" },
-  { label: "Valores", href: "#valores" },
   { label: "Depoimentos", href: "#depoimentos" },
   { label: "Contato", href: "#contato" },
 ];
 
+export const hero = {
+  title: "Apoio documental para brasileiros no Japão",
+  subtitle:
+    "Vistos, elegibilidade, traduções e documentos oficiais — com atendimento em português.",
+  trustLine:
+    "Organizamos sua papelada. Os processos oficiais são feitos por você, presencialmente.",
+  primaryCta: { label: "Ver serviços e valores", href: "#valores" },
+  secondaryCta: { label: "Falar comigo", href: "#contato" },
+};
+
 export const benefits = [
   { label: "Atendimento em português", icon: "languages" },
+  { label: "Vistos e elegibilidade", icon: "calendar" },
   { label: "Tradução de documentos", icon: "file-text" },
-  { label: "Assessoria no Japão", icon: "map-pin" },
-  { label: "Agendamentos e suporte", icon: "calendar" },
+  { label: "Apoio documental", icon: "map-pin" },
   { label: "Pagamento via Pix", icon: "qr-code" },
   { label: "Atendimento online", icon: "globe" },
 ];
 
-export const services = [
+export const servicesDisclaimer =
+  "Os serviços oferecidos consistem em apoio documental, organização e tradução. Os processos oficiais devem ser realizados presencialmente pelo próprio solicitante junto ao órgão competente. Este atendimento não constitui representação legal.";
+
+export const serviceCatalog = [
   {
-    id: "trad-simples",
-    icon: "doc",
-    title: "Tradução de documentos simples",
-    text: "Tradução de documentos do dia a dia, formulários, comprovantes, declarações, informações pessoais e outros materiais com menor complexidade.",
-    extra:
-      "Ideal para quem precisa compreender, apresentar ou enviar informações com clareza.",
-    cta: "Saiba mais",
-    variant: "light",
-    href: "#contato",
+    id: "vistos",
+    title: "Apoio para vistos",
+    items: [
+      {
+        id: "renovacao-visto",
+        title: "Renovação de visto",
+        description:
+          "Assistência documental para renovação de visto de residência.",
+        price: "¥30,000",
+        priceNote: null,
+        disclaimers: [
+          "Selo à parte: ¥6,000",
+          "Taxas consulares e oficiais não inclusas",
+          "Atendimento não inclui representação legal",
+        ],
+        documents: [],
+      },
+      {
+        id: "visto-permanente",
+        title: "Visto permanente",
+        description:
+          "Auxílio na organização da documentação necessária para o pedido.",
+        price: "¥60,000",
+        priceNote: null,
+        disclaimers: [
+          "Selo à parte: ¥10,000",
+          "Atendimento não inclui representação legal",
+        ],
+        documents: [],
+      },
+    ],
   },
   {
-    id: "trad-complexa",
-    icon: "doc-plus",
-    title: "Tradução de documentos complexos",
-    text: "Tradução de documentos com maior nível de detalhe, termos técnicos, informações oficiais ou conteúdos que exigem mais atenção ao contexto.",
-    extra:
-      "O valor é calculado por página, considerando o tipo de documento e a complexidade da tradução.",
-    cta: "Solicitar orçamento",
-    variant: "primary",
-    href: "#contato",
+    id: "elegibilidade",
+    title: "Elegibilidade",
+    items: [
+      {
+        id: "elegibilidade-familia",
+        title: "Certificado de elegibilidade — Família",
+        description: "Esposa, marido, pais e filhos.",
+        price: "¥50,000",
+        priceNote: null,
+        disclaimers: [
+          "Taxa de henshin futou (aprox. ¥460) paga à parte, quando aplicável",
+        ],
+        documents: [],
+      },
+      {
+        id: "elegibilidade-yonsei",
+        title: "Certificado de elegibilidade — Yonsei",
+        description: "Auxílio documental para filho de quarta geração (yonsei).",
+        price: "¥60,000",
+        priceNote: null,
+        disclaimers: [],
+        documents: [],
+      },
+      {
+        id: "elegibilidade-questionario",
+        title: "Questionário de elegibilidade",
+        description: "Preenchimento do questionário em português e japonês.",
+        price: "¥15,000",
+        priceNote: null,
+        disclaimers: [],
+        documents: [],
+      },
+    ],
   },
   {
-    id: "assessoria",
-    icon: "users",
-    title: "Assessoria para estrangeiros",
-    text: "Apoio para pessoas que não falam japonês ou sentem dificuldade em resolver situações importantes no Japão.",
-    extra:
-      "Auxílio em contatos, orientações, preenchimento de informações e comunicação com empresas, serviços ou instituições.",
-    cta: "Entender melhor",
-    variant: "dark",
-    href: "#contato",
+    id: "traducoes",
+    title: "Traduções",
+    items: [
+      {
+        id: "traducao-documentos",
+        title: "Tradução de documentos",
+        description:
+          "Nascimento, casamento, óbito, antecedentes criminais e outros.",
+        price: "¥2,000",
+        priceNote: "A partir de",
+        disclaimers: ["Valor conforme tipo e extensão do documento"],
+        documents: [],
+      },
+      {
+        id: "traducao-jaf",
+        title: "Tradução JAF",
+        description: "Tradução para fins de habilitação na JAF.",
+        price: "¥2,000",
+        priceNote: null,
+        disclaimers: [
+          "Custos externos da JAF (aprox. ¥6,000) e impressão (¥40) não inclusos",
+        ],
+        documents: [],
+      },
+    ],
   },
   {
-    id: "agendamentos",
-    icon: "calendar",
-    title: "Agendamentos e consultas",
-    text: "Ajuda para realizar agendamentos, confirmar informações, entrar em contato com estabelecimentos e organizar atendimentos.",
-    extra:
-      "Indicado para consultas, serviços locais, compromissos e situações em que a comunicação em japonês seja necessária.",
-    cta: "Agendar suporte",
-    variant: "light",
-    href: "#contato",
-  },
-  {
-    id: "contratacao",
-    icon: "handshake",
-    title: "Contratação de serviços no Japão",
-    text: "Suporte para entender, solicitar ou contratar serviços japoneses com mais segurança.",
-    extra:
-      "Ajuda na comunicação, interpretação de informações, análise de instruções e acompanhamento do processo.",
-    cta: "Preciso de ajuda",
-    variant: "primary",
-    href: "#contato",
-  },
-  {
-    id: "midias",
-    icon: "spark",
-    title: "Suporte com mídias sociais",
-    text: "Apoio na organização, criação e gestão de conteúdos para redes sociais, especialmente para pessoas ou pequenos negócios que precisam se comunicar melhor.",
-    cta: "Ver possibilidades",
-    variant: "dark",
-    href: "#contato",
+    id: "documentos-japoneses",
+    title: "Documentos japoneses",
+    items: [
+      {
+        id: "koseki-tohon",
+        title: "Pedido de Koseki Tohon",
+        description: "Auxílio na solicitação do registro familiar (koseki tohon).",
+        price: "¥5,000",
+        priceNote: null,
+        disclaimers: [],
+        documents: [],
+      },
+      {
+        id: "passaporte",
+        title: "Renovação de passaporte",
+        description:
+          "Organização documental para renovação junto ao consulado.",
+        price: "¥13,000",
+        priceNote: null,
+        disclaimers: [
+          "Taxa consular (aprox. ¥21.600), taxa adicional e envio (letter pack) não inclusos — total oficial aprox. ¥23.300",
+        ],
+        documents: [],
+      },
+      {
+        id: "reentry",
+        title: "Reentry Permit",
+        description: "Auxílio no formulário de permissão de reentrada.",
+        price: "¥10,000",
+        priceNote: null,
+        disclaimers: ["Selo à parte: ¥4,000"],
+        documents: [],
+      },
+    ],
   },
 ];
 
+/** Gera link de contato com serviço pré-selecionado no formulário */
+export function getServiceContactHref(serviceTitle) {
+  return `?service=${encodeURIComponent(serviceTitle)}#contato`;
+}
+
+/** Gera link do WhatsApp com mensagem inicial */
+export function getWhatsappHref(message) {
+  if (!message) return contact.whatsappLink;
+  return `${contact.whatsappLink}?text=${encodeURIComponent(message)}`;
+}
+
 export const situations = [
   {
-    id: "doc",
-    text: "Para quem recebeu um documento em japonês e precisa entender ou traduzir as informações, ofereço tradução por página, com cuidado no contexto e na finalidade do documento.",
-    cta: "Solicitar tradução",
+    id: "visto",
+    text: "Renovação de visto e visto permanente — organização da documentação em português.",
+    cta: "Ver vistos",
+    href: "#valores",
   },
   {
-    id: "agend",
-    text: "Para quem precisa marcar uma consulta, contratar um serviço ou entrar em contato com uma empresa japonesa, faço o suporte na comunicação e no processo de agendamento.",
-    cta: "Pedir assessoria",
+    id: "elegibilidade",
+    text: "Certificado de elegibilidade e questionário — apoio documental passo a passo.",
+    cta: "Ver elegibilidade",
+    href: "#valores",
   },
   {
-    id: "diario",
-    text: "Para quem vive no Japão e precisa de ajuda em diferentes situações do dia a dia, ofereço suporte personalizado conforme a necessidade, sempre com atendimento em português.",
-    cta: "Falar comigo",
+    id: "traducoes-documentos",
+    text: "Tradução de certidões, koseki tohon, passaporte e reentry.",
+    cta: "Ver serviços",
+    href: "#valores",
   },
 ];
 
@@ -135,136 +222,76 @@ export const processSteps = [
     number: "01",
     title: "Envio da solicitação",
     content:
-      "Você entra em contato pelo WhatsApp, formulário ou e-mail explicando o que precisa: tradução, assessoria, agendamento ou outro tipo de suporte.",
+      "Entre em contato pelo WhatsApp, formulário ou e-mail informando o serviço desejado (por exemplo: renovação de visto, certificado de elegibilidade ou tradução de documento).",
   },
   {
     number: "02",
     title: "Análise da demanda",
     content:
-      "A solicitação é analisada para entender o tipo de serviço, o nível de complexidade, o prazo e as informações necessárias para realizar o atendimento.",
+      "Analiso sua situação, confirmo o serviço adequado e informo quais documentos você precisa enviar.",
   },
   {
     number: "03",
     title: "Orçamento",
     content:
-      "Você recebe o valor do serviço, prazo estimado e orientações sobre o envio de documentos ou informações complementares.",
+      "Para serviços com valor divulgado no site, o preço já está definido. Selos, taxas consulares e custos oficiais são pagos à parte, conforme cada processo.",
   },
   {
     number: "04",
     title: "Confirmação e pagamento",
     content:
-      "Após a confirmação do orçamento, o pagamento pode ser realizado conforme as opções disponíveis, incluindo Pix quando aplicável.",
+      "Após a confirmação, o pagamento pode ser feito via Pix ou conforme combinado. Envie o comprovante pelo WhatsApp.",
   },
   {
     number: "05",
     title: "Execução do serviço",
     content:
-      "O serviço é realizado com atenção, sigilo e cuidado, seja na tradução do documento, no contato com terceiros ou no suporte solicitado.",
+      "Realizo a organização documental, tradução ou preenchimento combinado, com sigilo e cuidado em cada etapa.",
   },
   {
     number: "06",
     title: "Entrega e suporte final",
     content:
-      "Você recebe a tradução, orientação ou confirmação do serviço realizado. Caso necessário, também pode tirar dúvidas sobre o material entregue.",
+      "Você recebe os materiais ou orientações acordados. Se faltar algum documento, indico o que ainda precisa ser enviado.",
   },
 ];
 
-/** Nota abaixo dos cards (#valores) — primeira parte antes do link do WhatsApp. */
 export const pricingFootnoteLead =
-  "*Após envio dos documentos, realize o pagamento e nos envie uma mensagem no ";
-export const pricingFootnoteTail = " com comprovante";
-
-export const pricing = [
-  {
-    title: "Documento simples",
-    description:
-      "Traduação por folha para documentos curtos, formulários e comprovantes de baixa complexidade.",
-    price: "1,250円",
-    priceSuffix: "por folha",
-    features: [
-      "Valor por página (documento simples)",
-      "Análise do material enviado",
-      "Entrega digital",
-      "Atendimento em português",
-    ],
-    cta: "Enviar documentos",
-    variant: "light",
-    href: "#contato",
-  },
-  {
-    title: "Documento extenso",
-    description:
-      "Para documentos com mais volume, termos técnicos, informações oficiais ou maior detalhe.",
-    price: "1,500円",
-    priceSuffix: "por folha",
-    features: [
-      "Valor por página (documento extenso)",
-      "Leitura cuidadosa do contexto",
-      "Combinar prazo e formato da entrega",
-      "Orientação antes e depois do envio",
-    ],
-    cta: "Enviar documentos",
-    variant: "primary",
-    featured: true,
-    href: "#contato",
-  },
-  {
-    title: "Assessoria personalizada",
-    description:
-      "Agendamentos, contatos, contratação de serviços, suporte em japonês e demandas do dia a dia.",
-    price: "Sob consulta",
-    priceSuffix: "valor conforme demanda",
-    features: [
-      "Atendimento individual",
-      "Suporte na comunicação em japonês",
-      "Orientação em português",
-      "Acompanhamento conforme a necessidade",
-    ],
-    cta: "Falar pelo WhatsApp",
-    variant: "dark",
-    href: contact.whatsappLink,
-    external: true,
-  },
-];
+  "*Após envio dos documentos, realize o pagamento e envie o comprovante pelo ";
+export const pricingFootnoteTail = ".";
 
 export const testimonials = [
   {
     quote:
-      "Precisei traduzir um documento com urgência e fui atendido com muita atenção. O processo foi simples, rápido e bem explicado.",
+      "Precisava renovar o visto e não sabia por onde começar. Fui orientada sobre os documentos e o processo ficou muito mais claro.",
+    author: "Cliente de renovação de visto",
+    role: "Apoio documental",
+  },
+  {
+    quote:
+      "O certificado de elegibilidade exigia muitos papéis. Com o apoio em português, consegui organizar tudo sem ficar perdida.",
+    author: "Cliente de elegibilidade",
+    role: "Organização documental",
+  },
+  {
+    quote:
+      "Traduzi certidões para o processo no Japão. Atendimento atencioso, prazo combinado e explicação em português o tempo todo.",
     author: "Cliente de tradução",
-    role: "Atendimento de tradução",
-  },
-  {
-    quote:
-      "Eu não sabia como entrar em contato com um serviço japonês e recebi todo o suporte necessário para resolver a situação.",
-    author: "Cliente de assessoria",
-    role: "Atendimento de assessoria",
-  },
-  {
-    quote:
-      "O atendimento em português fez toda a diferença. Consegui entender melhor o que precisava fazer e me senti mais segura.",
-    author: "Cliente no Japão",
-    role: "Atendimento personalizado",
+    role: "Tradução de documentos",
   },
 ];
 
 export const serviceTypes = [
-  "Tradução de documento simples",
-  "Tradução de documento complexo",
-  "Assessoria para estrangeiros",
-  "Agendamento ou consulta",
-  "Contratação de serviços no Japão",
-  "Suporte com mídias sociais",
+  ...serviceCatalog.flatMap((cat) => cat.items.map((item) => item.title)),
   "Outro",
 ];
 
 export const footerColumns = {
   menu: navItems,
   services: [
-    { label: "Tradução de documentos", href: "#servicos" },
-    { label: "Assessoria para estrangeiros", href: "#servicos" },
-    { label: "Agendamentos", href: "#servicos" },
-    { label: "Contratação de serviços", href: "#servicos" },
-    { label: "Suporte com mídias sociais", href: "#servicos" },
+    { label: "Apoio para vistos", href: "#valores" },
+    { label: "Elegibilidade", href: "#valores" },
+    { label: "Traduções", href: "#valores" },
+    { label: "Documentos japoneses", href: "#valores" },
   ],
 };

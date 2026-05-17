@@ -40,8 +40,8 @@ function Header() {
         </nav>
 
         <div className={styles.actions}>
-          <Button href="#contato" variant="outline" size="md">
-            Solicitar orçamento
+          <Button href="#valores" variant="outline" size="md">
+            Ver serviços e valores
           </Button>
         </div>
 
@@ -79,7 +79,7 @@ function Header() {
           className={styles.mobileCta}
           onClick={close}
         >
-          Solicitar orçamento
+          Ver serviços e valores
         </Button>
       </div>
     </header>

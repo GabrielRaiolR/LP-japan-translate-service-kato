@@ -22,7 +22,7 @@ function Testimonials() {
         <SectionHeader
           id="testimonials-title"
           title="Depoimentos"
-          subtitle="A experiência de quem já recebeu suporte com traduções, agendamentos e situações do dia a dia no Japão."
+          subtitle="A experiência de quem já recebeu apoio com vistos, elegibilidade e tradução de documentos no Japão."
         />
 
         <div className={styles.stage}>

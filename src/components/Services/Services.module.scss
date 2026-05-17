@@ -9,6 +9,26 @@
   }
 }
 
+.overview {
+  margin-bottom: 40px;
+
+  @include md {
+    margin-bottom: 56px;
+  }
+
+  .grid {
+    margin-bottom: 0;
+  }
+
+  .card {
+    min-height: 240px;
+
+    @include md {
+      min-height: 260px;
+    }
+  }
+}
+
 .grid {
   display: grid;
   gap: 24px;

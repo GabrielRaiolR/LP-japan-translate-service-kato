@@ -41,9 +41,6 @@ function Footer() {
             >
               <img src={`/assets/Footer-Logo-Instagram.svg${q}`} alt="" />
             </a>
-            <a href="#contato" aria-label="LinkedIn">
-              <img src={`/assets/Footer-Logo-Linkedin.svg${q}`} alt="" />
-            </a>
           </div>
         </div>
 
@@ -69,14 +66,14 @@ function Footer() {
 
           <div className={styles.ctaCol}>
             <div className={styles.ctaBox}>
-              <h3>Pronto para resolver?</h3>
+              <h3>Pronto para começar?</h3>
               <p>
-                Envie sua solicitação pelo formulário. Você recebe retorno por
-                e-mail em português.
+                Veja os serviços e valores ou envie sua solicitação. Retorno em
+                português por e-mail ou WhatsApp.
               </p>
               <div className={styles.ctaActions}>
-                <Button href="#contato" variant="primary" size="md">
-                  Enviar formulário
+                <Button href="#valores" variant="primary" size="md">
+                  Ver serviços e valores
                 </Button>
                 <Button
                   href={`mailto:${contact.email}`}

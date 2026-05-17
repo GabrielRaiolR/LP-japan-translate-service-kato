@@ -57,6 +57,20 @@
   }
 }
 
+.trustLine {
+  font-size: 0.95rem;
+  line-height: 1.45;
+  color: $color-text;
+  opacity: 0.8;
+  max-width: 480px;
+  margin: -12px 0 24px;
+
+  @include md {
+    font-size: 1rem;
+    margin-bottom: 28px;
+  }
+}
+
 .actions {
   display: flex;
   flex-wrap: wrap;

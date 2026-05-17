@@ -22,7 +22,7 @@
 
 .grid {
   display: grid;
-  gap: 32px;
+  gap: 28px;
 
   @include md {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -33,10 +33,11 @@
 .card {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 16px;
+  min-width: 0;
 
   &:not(:last-child) {
-    padding-bottom: 32px;
+    padding-bottom: 28px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.18);
 
     @include md {
@@ -55,31 +56,35 @@
 }
 
 .text {
-  font-size: 1.125rem;
+  font-size: 1rem;
   line-height: 1.45;
   color: $color-white;
+
+  @include md {
+    font-size: 1.0625rem;
+  }
 }
 
 .link {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   color: #9fcbff;
-  font-size: 1.25rem;
+  font-size: 1.0625rem;
   font-weight: 400;
   text-decoration: none;
   margin-top: auto;
   transition: gap 0.2s ease;
 
   svg {
-    width: 22px;
-    height: 22px;
+    width: 20px;
+    height: 20px;
     display: block;
     transition: transform 0.2s ease;
   }
 
   &:hover {
-    gap: 16px;
+    gap: 14px;
     color: $color-white;
 
     svg {

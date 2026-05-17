@@ -10,13 +10,12 @@ function CTA() {
         <div className={styles.box}>
           <div className={styles.copy}>
             <h3 className={styles.title}>
-              Precisa resolver algo em japonês, mas não sabe por onde começar?
+              Precisa renovar visto ou montar documentação de elegibilidade?
             </h3>
             <p className={styles.text}>
-              Explique sua situação e receba uma orientação inicial sobre o
-              melhor caminho. Seja para tradução, agendamento, contato com
-              empresas ou suporte em processos do dia a dia, o atendimento é
-              feito de forma simples, direta e em português.
+              Fale em português. Explico o que preparar, organizo a papelada e
+              deixo claro o que você precisa fazer presencialmente no órgão
+              oficial.
             </p>
             <Button
               href={contact.whatsappLink}
