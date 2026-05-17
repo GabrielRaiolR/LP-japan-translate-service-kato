@@ -79,6 +79,7 @@ function CatalogItem({ item, isOpen, onToggle, panelId, buttonId }) {
             href={getServiceContactHref(item.title)}
             variant="dark"
             size="md"
+            external
             className={styles.catalogCta}
           >
             Solicitar atendimento

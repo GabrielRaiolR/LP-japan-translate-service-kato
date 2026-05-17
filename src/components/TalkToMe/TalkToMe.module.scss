@@ -9,29 +9,32 @@
   }
 }
 
-.grid {
-  display: grid;
-  gap: 24px;
-
-  @include lg {
-    grid-template-columns: 1.15fr 0.85fr;
-    gap: 30px;
-    align-items: stretch;
-  }
-}
-
 .card {
   background: $color-bg-light;
   border: 1px solid $color-secondary;
   border-radius: $radius-xl;
   padding: 36px 28px;
-  display: flex;
-  flex-direction: column;
-  gap: 28px;
+  display: grid;
+  gap: 32px;
+  align-items: center;
   box-shadow: $shadow-card;
 
   @include md {
+    grid-template-columns: 1fr 1fr;
+    gap: 48px 56px;
     padding: 50px 60px;
+  }
+}
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  min-width: 0;
+
+  @include md {
+    gap: 28px;
   }
 }
 
@@ -53,132 +56,63 @@
   font-size: 1rem;
   line-height: 1.5;
   color: $color-text;
+  max-width: 36ch;
 }
 
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.row {
-  display: grid;
-  gap: 20px;
-
-  @include sm {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-.field {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-
-  > span {
-    font-size: 1rem;
-    line-height: 1.55;
-    color: $color-text;
-  }
-
-  input,
-  select,
-  textarea {
-    width: 100%;
-    background: $color-white;
-    border: 1px solid $color-secondary;
-    border-radius: $radius-md;
-    padding: 16px 24px;
-    font-size: 1rem;
-    color: $color-text;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
-
-    &:focus {
-      outline: none;
-      border-color: $color-primary;
-      box-shadow: 0 0 0 3px rgba(67, 149, 253, 0.2);
-    }
-
-    &::placeholder {
-      color: #898989;
-    }
-  }
-
-  textarea {
-    resize: vertical;
-    min-height: 130px;
-  }
-
-  select {
-    appearance: none;
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23002794' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'/></svg>");
-    background-repeat: no-repeat;
-    background-position: right 20px center;
-    padding-right: 48px;
-  }
-}
-
-.success {
-  font-size: 0.95rem;
+.phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  font-family: $font-display;
+  font-size: clamp(1.35rem, 2.8vw, 2rem);
+  font-weight: 600;
   color: $color-secondary;
-  background: rgba(67, 149, 253, 0.12);
-  padding: 12px 16px;
-  border-radius: $radius-md;
+  text-decoration: none;
+  letter-spacing: -0.02em;
+  transition: color 0.2s ease;
+  flex-wrap: wrap;
 
-  a {
+  &:hover {
     color: $color-primary;
-    font-weight: 500;
-    text-decoration: underline;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-primary;
+    outline-offset: 4px;
+    border-radius: $radius-sm;
   }
 }
 
-.contactList {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-
-  li {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-
-    strong {
-      display: block;
-      font-size: 0.78rem;
-      font-weight: 500;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: $color-secondary;
-      margin-bottom: 4px;
-    }
-
-    a,
-    span {
-      color: $color-text;
-      font-size: 1.0625rem;
-      text-decoration: none;
-      word-break: break-word;
-      transition: color 0.2s ease;
-    }
-
-    a:hover {
-      color: $color-primary;
-    }
-  }
-}
-
-.iconWrap {
+.phoneIcon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
   background: $color-primary;
   color: $color-white;
+  flex-shrink: 0;
+
+  svg {
+    width: 26px;
+    height: 26px;
+    display: block;
+  }
+}
+
+.note {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  font-size: 1rem;
+  color: $color-muted;
+}
+
+.noteIcon {
+  display: inline-flex;
+  color: $color-primary;
   flex-shrink: 0;
 
   svg {
@@ -188,19 +122,38 @@
   }
 }
 
-.directIllustration {
+.visual {
   display: flex;
   justify-content: center;
-  margin-block: 8px;
+  align-items: center;
+  min-width: 0;
 
   img {
     width: 100%;
-    max-width: 280px;
+    max-width: 340px;
     height: auto;
+  }
+
+  @include md {
+    justify-content: flex-end;
+
+    img {
+      max-width: 390px;
+    }
+  }
+
+  @include lg {
+    img {
+      max-width: 400px;
+    }
   }
 }
 
-.directCta {
+.whatsappCta {
   width: 100%;
-  margin-top: auto;
+  max-width: 360px;
+
+  @include md {
+    max-width: 100%;
+  }
 }

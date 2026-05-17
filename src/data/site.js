@@ -54,7 +54,7 @@ export const servicesDisclaimer =
 export const serviceCatalog = [
   {
     id: "vistos",
-    title: "Apoio para vistos",
+    title: " Assessoria para vistos",
     items: [
       {
         id: "renovacao-visto",
@@ -91,7 +91,8 @@ export const serviceCatalog = [
     items: [
       {
         id: "elegibilidade-familia",
-        title: "Certificado de elegibilidade — Família",
+        title:
+          "Certificado de elegibilidade — Família (marido, esposa, filho, filha)",
         description: "Esposa, marido, pais e filhos.",
         price: "¥50,000",
         priceNote: null,
@@ -103,7 +104,8 @@ export const serviceCatalog = [
       {
         id: "elegibilidade-yonsei",
         title: "Certificado de elegibilidade — Yonsei",
-        description: "Auxílio documental para filho de quarta geração (yonsei).",
+        description:
+          "Auxílio documental para filho de quarta geração (yonsei).",
         price: "¥60,000",
         priceNote: null,
         disclaimers: [],
@@ -111,7 +113,7 @@ export const serviceCatalog = [
       },
       {
         id: "elegibilidade-questionario",
-        title: "Questionário de elegibilidade",
+        title: "Questionário",
         description: "Preenchimento do questionário em português e japonês.",
         price: "¥15,000",
         priceNote: null,
@@ -149,12 +151,13 @@ export const serviceCatalog = [
   },
   {
     id: "documentos-japoneses",
-    title: "Documentos japoneses",
+    title: "Passaporte",
     items: [
       {
         id: "koseki-tohon",
         title: "Pedido de Koseki Tohon",
-        description: "Auxílio na solicitação do registro familiar (koseki tohon).",
+        description:
+          "Auxílio na solicitação do registro familiar (koseki tohon).",
         price: "¥5,000",
         priceNote: null,
         disclaimers: [],
@@ -174,8 +177,9 @@ export const serviceCatalog = [
       },
       {
         id: "reentry",
-        title: "Reentry Permit",
-        description: "Auxílio no formulário de permissão de reentrada.",
+        title: "Formulário: Reentry Permit",
+        description:
+          "Auxílio no preenchimento do formulário de permissão de reentrada.",
         price: "¥10,000",
         priceNote: null,
         disclaimers: ["Selo à parte: ¥4,000"],
@@ -185,9 +189,9 @@ export const serviceCatalog = [
   },
 ];
 
-/** Gera link de contato com serviço pré-selecionado no formulário */
+/** Gera link do WhatsApp com serviço mencionado na mensagem inicial */
 export function getServiceContactHref(serviceTitle) {
-  return `?service=${encodeURIComponent(serviceTitle)}#contato`;
+  return getWhatsappHref(`Olá! Gostaria de informações sobre: ${serviceTitle}`);
 }
 
 /** Gera link do WhatsApp com mensagem inicial */
@@ -222,7 +226,7 @@ export const processSteps = [
     number: "01",
     title: "Envio da solicitação",
     content:
-      "Entre em contato pelo WhatsApp, formulário ou e-mail informando o serviço desejado (por exemplo: renovação de visto, certificado de elegibilidade ou tradução de documento).",
+      "Entre em contato pelo WhatsApp informando o serviço desejado (por exemplo: renovação de visto, certificado de elegibilidade ou tradução de documento).",
   },
   {
     number: "02",

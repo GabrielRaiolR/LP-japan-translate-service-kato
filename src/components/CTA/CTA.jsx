@@ -13,9 +13,8 @@ function CTA() {
               Precisa renovar visto ou montar documentação de elegibilidade?
             </h3>
             <p className={styles.text}>
-              Fale em português. Explico o que preparar, organizo a papelada e
-              deixo claro o que você precisa fazer presencialmente no órgão
-              oficial.
+              Explico o que preparar, organizo a papelada e deixo claro o que
+              você precisa fazer presencialmente no órgão oficial.
             </p>
             <Button
               href={contact.whatsappLink}

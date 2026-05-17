@@ -18,10 +18,8 @@ function App() {
       <main className={styles.main}>
         <Hero />
         <Benefits />
-        <Situations />
         <Pricing />
         <Process />
-        <CTA />
         <TalkToMe />
         <PixSection />
         <Testimonials />
